@@ -29,7 +29,7 @@ class Main extends React.Component {
 
     return (
       <main>
-        <p>This is my main for now, thanks for all the fish.</p>
+        {/* <p>This is my main for now, thanks for all the fish.</p> */}
         {this.props.cityData.length > 0 &&
           <article>
             <p>The location you have selected is <b id='name'>{cityName}</b></p>

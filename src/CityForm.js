@@ -12,7 +12,8 @@ class CityForm extends React.Component {
       selectedCity: '',
       error: false,
       errorType: '',
-      errorStatus: ''
+      errorStatus: '',
+      showClear: false
     }
   }
 
@@ -28,6 +29,7 @@ class CityForm extends React.Component {
       let cityUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ}&q=${this.state.selectedCity}&format=json`
       let cityData = await axios.get(cityUrl);
       this.props.getCityData(cityData.data);
+      this.setState({showClear: true})
     } catch (error) {
       this.setState({
         error: true,
@@ -41,13 +43,20 @@ class CityForm extends React.Component {
     }
   };
 
-  closeModal = () => this.setState({ error: false });
+  closeAlert = () => this.setState({ error: false });
+
+  clearForm = () => {
+    document.getElementById('cityForm').reset();
+    this.setState({showClear: false});
+  }
 
   render() {
     return (
       <>
         {this.state.error === true &&
-          <p id='error'>{`Error: ${this.state.errorType}!  Status: ${this.state.errorStatus}.`}</p>
+          <>
+          <p id='error'>{`Error: ${this.state.errorType}!  Status: ${this.state.errorStatus}.`}<button onClick={this.closeAlert}>X</button></p>
+          </>
           // <Modal
           //   show={this.state.error}
           //   size='md'
@@ -62,12 +71,15 @@ class CityForm extends React.Component {
           //   </Modal.Body>
           // </Modal>
         }
-        <form onSubmit={this.getCityData} name="cityForm">
+        <form onSubmit={this.getCityData} id="cityForm">
           <fieldset>
             <legend>Choose A City!</legend>
-            <input type="text" onChange={this.getCityInput} name="cityForm"></input>
+            <input type="text" onChange={this.getCityInput}></input>
           </fieldset>
-          <button type='submit' name="cityForm">Explore!</button>
+          <div id='formButtonDiv'>
+          <button type='submit'>Explore!</button>
+          {this.state.showClear === true && <button onClick={this.clearForm}>Clear</button>}
+          </div>
         </form>
         
       </>

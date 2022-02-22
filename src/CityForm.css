@@ -2,7 +2,7 @@ form {
   margin: 1rem auto;
   text-align: center;
   font-size: 1.25rem;
-  width: 75%;
+  max-width: 75%; 
 }
 
 fieldset {
@@ -14,11 +14,19 @@ legend {
   font-weight: bold;
 }
 
-button {
+form button {
   margin-top: 2rem;
   padding: .5rem 1rem;
 }
 
+#formButtonDiv {
+  display: flex;
+  justify-content: space-around;
+}
+
+p button {
+  margin-left: 1rem;
+}
 button:hover {
   cursor: pointer;
   color: firebrick;
