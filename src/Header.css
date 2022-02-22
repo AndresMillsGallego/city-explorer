@@ -1,0 +1,9 @@
+h1 {
+  width: 75%;
+  font-size: 3vw;
+  text-align: center;
+  border-bottom: 3px double blue;
+  margin: auto;
+  padding-bottom: 1rem;
+  word-spacing: 2rem;
+}
