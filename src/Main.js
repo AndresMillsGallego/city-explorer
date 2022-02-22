@@ -1,4 +1,6 @@
 import React from 'react'
+import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card'
 
 import './Main.css'
 
@@ -10,9 +12,9 @@ class Main extends React.Component {
     }
   }
 
-  zoomOut = () => this.setState({zoom: this.state.zoom - 1});
+  zoomOut = () => this.setState({ zoom: this.state.zoom - 1 });
 
-  zoomIn = () => this.setState({zoom: this.state.zoom + 1});
+  zoomIn = () => this.setState({ zoom: this.state.zoom + 1 });
 
   render() {
     let cityName;
@@ -28,21 +30,27 @@ class Main extends React.Component {
     }
 
     return (
-      <main>
-        {/* <p>This is my main for now, thanks for all the fish.</p> */}
-        {this.props.cityData.length > 0 &&
-          <article>
-            <p>The location you have selected is <b id='name'>{cityName}</b></p>
-            <p>The latitude for your selected city is: <b id='lat'>{cityLat}</b></p>
-            <p>The longitude for your selected city is: <b id='lon'>{cityLon}</b></p>
+      <>
+        {
+          this.props.cityData.length > 0 &&
+          <Card>
+            <Card.Header>The location you have selected is <b id='name'>{cityName}</b></Card.Header>
             <div id='zoomDiv'>
-            <button onClick={this.zoomOut}>- Zoom Out -</button> <button onClick={this.zoomIn}>+ Zoom In +</button>
+              <button onClick={this.zoomOut}>- Zoom Out -</button> <button onClick={this.zoomIn}>+ Zoom In +</button>
             </div>
-            <img src={cityMap} alt={cityName} title={cityName} className="h-25 w-25"/>
-          </article>
+            <Card.Img src={cityMap} alt={cityName} title={cityName} className="h-100 w-100" />
+            <Card.Body>
+              <ListGroup>
+                <ListGroup.Item>The location you have selected is <b id='name'>{cityName}</b></ListGroup.Item>
+                <ListGroup.Item>The latitude for your selected city is: <b id='lat'>{cityLat}</b></ListGroup.Item>
+                <ListGroup.Item>The longitude for your selected city is: <b id='lon'>{cityLon}</b></ListGroup.Item>
+              </ListGroup>
+            </Card.Body>
+          </Card>
         }
+      </>
 
-      </main>
+
     )
   }
 };
