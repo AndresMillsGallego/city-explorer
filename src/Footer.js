@@ -1,10 +1,15 @@
 import React from 'react'
 
+import './Footer.css'
+
 class Footer extends React.Component {
   render() {
     return (
       <>
-      <footer>&copy;Andres Mills Gallego</footer>
+      <footer>
+        <p>&copy;Andres Mills Gallego</p>
+         <a href='https://github.com/AndresMillsGallego'>My Github</a>
+        </footer>
       </>
     )
   }

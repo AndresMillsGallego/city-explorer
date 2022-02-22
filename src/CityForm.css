@@ -1,0 +1,31 @@
+form {
+  margin: 30px auto;
+  text-align: center;
+}
+
+fieldset {
+  padding: 1rem;
+  padding-bottom: 1.5rem;
+  background-color: aliceblue;
+}
+
+legend {
+  color: firebrick;
+  font-weight: bold;
+}
+
+button {
+  margin-top: 1rem;
+  padding: .5rem 2rem;
+}
+
+button:hover {
+  cursor: pointer;
+  color: firebrick;
+}
+
+input {
+  padding: .5rem 1rem;
+  color: black;
+  text-align: center;
+}
