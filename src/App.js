@@ -9,14 +9,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityData: []
+      cityData: [],
     }
   };
 
   getCityData = (cityData) => {
     this.setState({cityData: cityData});
-    
-    
   }
   
   
