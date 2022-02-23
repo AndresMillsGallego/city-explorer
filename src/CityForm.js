@@ -21,14 +21,17 @@ class CityForm extends React.Component {
   getCityInput = (event) => {
     let selectedCity = event.target.value;
     this.setState({ selectedCity: selectedCity })
-    console.log(event.target.value);
   }
 
   getCityData = async (event) => {
     event.preventDefault();
     try {
       let cityUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ}&q=${this.state.selectedCity}&format=json`
+      let weatherUrl = `http://localhost:3001/weather?city=${this.state.selectedCity}`
       let cityData = await axios.get(cityUrl);
+      let cityWeather = await axios.get(weatherUrl);
+      console.log(cityWeather);
+      this.props.getCityWeather(cityWeather.data);
       this.props.getCityData(cityData.data);
       this.setState({showClear: true})
     } catch (error) {
