@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-// import Modal from 'react-bootstrap/Modal'
-// import Form from 'react-bootstrap/Form'
+import { Modal, ListGroup, Form, Button, ButtonGroup } from 'react-bootstrap'
+
 
 import './CityForm.css'
 
@@ -30,19 +30,18 @@ class CityForm extends React.Component {
       let weatherUrl = `http://localhost:3001/weather?city=${this.state.selectedCity}`
       let cityData = await axios.get(cityUrl);
       let cityWeather = await axios.get(weatherUrl);
-      console.log(cityWeather);
+      // console.log(cityWeather.data);
       this.props.getCityWeather(cityWeather.data);
       this.props.getCityData(cityData.data);
-      this.setState({showClear: true})
+      this.setState({ showClear: true })
     } catch (error) {
       this.setState({
         error: true,
         errorType: error.response.data.error,
         errorStatus: error.response.status
       })
-      console.log(error.response);
-      console.log(this.state.error, this.state.errorType, this.state.errorStatus)
-      alert(`Error: ${this.state.errorType}!  Status: ${this.state.errorStatus}.`);
+      // console.log(error.response);
+      // console.log(this.state.error, this.state.errorType, this.state.errorStatus);
 
     }
   };
@@ -51,7 +50,7 @@ class CityForm extends React.Component {
 
   clearForm = () => {
     document.getElementById('cityForm').reset();
-    this.setState({showClear: false});
+    this.setState({ showClear: false });
   }
 
   render() {
@@ -59,33 +58,33 @@ class CityForm extends React.Component {
       <>
         {this.state.error === true &&
           <>
-          <p id='error'>{`Error: ${this.state.errorType}!  Status: ${this.state.errorStatus}.`}<button onClick={this.closeAlert}>X</button></p>
+            <Modal
+              show={this.state.error}
+              size='md'
+              centered
+              onHide={this.closeAlert}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>Error!</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <ListGroup.Item>{`Error: ${this.state.errorType}!`}</ListGroup.Item>
+                <ListGroup.Item>{`Status: ${this.state.errorStatus}!`}</ListGroup.Item>
+              </Modal.Body>
+            </Modal>
           </>
-          // <Modal
-          //   show={this.state.error}
-          //   size='md'
-          //   centered
-          //   onHide={this.closeModal}
-          // >
-          //   <Modal.Header closeButton>
-          //     <Modal.Title>Error!</Modal.Title>
-          //   </Modal.Header>
-          //   <Modal.Body>
-              
-          //   </Modal.Body>
-          // </Modal>
         }
-        <form onSubmit={this.getCityData} id="cityForm">
-          <fieldset>
-            <legend>Choose A City!</legend>
-            <input type="text" onChange={this.getCityInput}></input>
-          </fieldset>
-          <div id='formButtonDiv'>
-          <button type='submit'>Explore!</button>
-          {this.state.showClear === true && <button onClick={this.clearForm}>Clear</button>}
-          </div>
-        </form>
-        
+        <Form onSubmit={this.getCityData} id="cityForm">
+          <Form.Group>
+            <Form.Label>Choose A City!</Form.Label>
+            <Form.Control type="text" onChange={this.getCityInput}></Form.Control>
+          </Form.Group>
+          <ButtonGroup id='formButtons'>
+            <Button type='submit'>Explore!</Button>
+            {this.state.showClear === true && <Button onClick={this.clearForm}>Clear</Button>}
+          </ButtonGroup>
+        </Form>
+
       </>
     )
   }

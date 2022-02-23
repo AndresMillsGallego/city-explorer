@@ -5,31 +5,14 @@ form {
   max-width: 75%; 
 }
 
-fieldset {
-  background-color: aliceblue;
-}
-
-legend {
-  color: firebrick;
-  font-weight: bold;
-}
-
 form button {
-  margin-top: 2rem;
+  margin: 2rem;
   padding: .5rem 1rem;
 }
 
-#formButtonDiv {
+#formButtons {
   display: flex;
   justify-content: space-around;
-}
-
-p button {
-  margin-left: 1rem;
-}
-button:hover {
-  cursor: pointer;
-  color: firebrick;
 }
 
 input {
@@ -41,11 +24,3 @@ input {
   text-align: center;
 }
 
-#error {
-  border: 3px solid chartreuse;
-  background-color: black;
-  color: red;
-  text-align: center;
-  padding: 1rem 2rem;
-  font-weight: bold;
-}
