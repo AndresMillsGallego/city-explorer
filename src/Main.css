@@ -4,15 +4,11 @@ main {
   align-items: center;
 }
 
-main p {
-  width: fit-content;
-  text-align: center;
-  padding-bottom: 1rem;
-  border-bottom: 3px double firebrick;
-  margin: 1rem auto;
-}
+.card {
+  padding: 1rem;
 
-main img {
+}
+.card img {
   margin: 1rem auto;
   width: 100%;
   border: 3px solid dodgerblue;
