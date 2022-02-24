@@ -14,6 +14,7 @@ class CityForm extends React.Component {
       error: false,
       errorType: '',
       errorStatus: '',
+      cityData: [],
       showClear: false
     }
   }
@@ -27,24 +28,37 @@ class CityForm extends React.Component {
     event.preventDefault();
     try {
       let cityUrl = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ}&q=${this.state.selectedCity}&format=json`
-      let weatherUrl = `http://localhost:3001/weather?city=${this.state.selectedCity}`
       let cityData = await axios.get(cityUrl);
-      let cityWeather = await axios.get(weatherUrl);
-      // console.log(cityWeather.data);
-      this.props.getCityWeather(cityWeather.data);
       this.props.getCityData(cityData.data);
-      this.setState({ showClear: true })
+      this.setState({
+        showClear: true,
+        cityData: cityData.data[0]
+      })
     } catch (error) {
       this.setState({
         error: true,
         errorType: error.response.data.error,
         errorStatus: error.response.status
       })
-      // console.log(error.response);
-      // console.log(this.state.error, this.state.errorType, this.state.errorStatus);
-
-    }
+    } this.getWeather();
   };
+  
+  getWeather = async () => {
+    try {
+  
+      
+      let weatherUrl = `http://localhost:3001/weather?lat=${this.state.cityData.lat}&lon=${this.state.cityData.lon}`
+      let cityWeather = await axios.get(weatherUrl);
+      this.props.getCityWeather(cityWeather.data);
+    } catch (error) {
+      this.setState({
+        error: true,
+        errorType: error.response.data.error,
+        errorStatus: error.response.status
+      })
+    }
+  }
+
 
   closeAlert = () => this.setState({ error: false });
 
@@ -77,7 +91,11 @@ class CityForm extends React.Component {
         <Form onSubmit={this.getCityData} id="cityForm">
           <Form.Group>
             <Form.Label>Choose A City!</Form.Label>
-            <Form.Control type="text" onChange={this.getCityInput}></Form.Control>
+            <Form.Control 
+              type="text" 
+              onChange={this.getCityInput}
+              className="w-25 m-auto"
+              ></Form.Control>
           </Form.Group>
           <ButtonGroup id='formButtons'>
             <Button type='submit'>Explore!</Button>

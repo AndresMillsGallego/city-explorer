@@ -1,6 +1,6 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card'
+import { Card, Button } from 'react-bootstrap'
 
 import './Main.css'
 
@@ -33,12 +33,12 @@ class Main extends React.Component {
       <>
         {
           this.props.cityData.length > 0 &&
-          <Card>
-            <Card.Header>The location you have selected is <b id='name'>{cityName}</b></Card.Header>
+          <Card id="cityCard" className='mb-4 w-50'>
+            <Card.Header><b id='name'>{cityName}</b></Card.Header>
             <div id='zoomDiv'>
-              <button onClick={this.zoomOut}>- Zoom Out -</button> <button onClick={this.zoomIn}>+ Zoom In +</button>
+              <Button variant='outline-primary' onClick={this.zoomOut}>- Zoom Out -</Button> <Button variant='outline-danger' onClick={this.zoomIn}>+ Zoom In +</Button>
             </div>
-            <Card.Img src={cityMap} alt={cityName} title={cityName} className="h-100 w-100" />
+            <Card.Img src={cityMap} alt={cityName} title={cityName} className="h-50 w-50" />
             <Card.Body>
               <ListGroup>
                 <ListGroup.Item>The location you have selected is <b id='name'>{cityName}</b></ListGroup.Item>

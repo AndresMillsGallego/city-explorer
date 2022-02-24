@@ -1,0 +1,9 @@
+.col .card :nth-child(odd) {
+  background-color:rgb(197, 247, 197);
+  border-radius: 5px;
+}
+
+.row .card {
+  background-color: rgb(95, 173, 251);
+  border-radius: 5px;
+}

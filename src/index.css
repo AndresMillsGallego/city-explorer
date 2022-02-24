@@ -19,6 +19,10 @@ body {
   margin: 30px auto;
   border-radius: 5px;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-  background-color: beige;
+}
+
+div {
+  background-color: rgba(252, 238, 220, 0.863);
+  width: 100%;
 }
 
