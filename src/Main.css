@@ -4,14 +4,33 @@ main {
   align-items: center;
 }
 
+h2 {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 1rem;
+  border-bottom: 3px double blue;
+}
+
 .card {
   padding: 1rem;
+  text-align: center;
+}
 
+#cityCard {
+  margin: auto;
+  border-radius: 5px;
+}
+
+.card-body, 
+.card-header {
+  background-color: rgb(95, 173, 251);
+  border-radius: 5px;
 }
 .card img {
   margin: 1rem auto;
   width: 100%;
-  border: 3px solid dodgerblue;
+  border: 3px solid rgb(110, 180, 250);
   border-radius: 5px;
   margin-top: 1rem;
 }
@@ -19,6 +38,8 @@ main {
 #zoomDiv {
   text-align: end;
   margin-top: 3rem;
+  margin-right: 27%;
+  background-color: transparent;
 }
 
 #name {

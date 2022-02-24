@@ -10,9 +10,15 @@ form button {
   padding: .5rem 1rem;
 }
 
+.form-label {
+  font-size: 2rem;
+  word-spacing: 1rem;
+}
 #formButtons {
   display: flex;
   justify-content: space-around;
+  width: 25%;
+  margin: auto;
 }
 
 input {
@@ -23,4 +29,3 @@ input {
   color: black;
   text-align: center;
 }
-

@@ -18,22 +18,17 @@ class App extends React.Component {
 
   getCityData = (cityData) => {
     this.setState({ cityData: cityData });
-    console.log(this.state.cityData[0].display_name)
+    console.log(this.state.cityData[0])
   }
 
   getCityWeather = (cityWeather) => {
     this.setState({ cityWeather: cityWeather });
-    console.log(this.state.cityWeather[0])
+    console.log(this.state.cityWeather)
   }
 
   render() {
-    let weatherCards = this.state.cityWeather.map((day, index)  => (
-      <Weather key={index}
-        cityData={this.state.cityData}
-        cityWeather={this.state.cityWeather}
-      ></Weather>
-    ));
-
+    console.log(this.state.cityWeather)
+    
     return (
       <>
 
@@ -47,10 +42,12 @@ class App extends React.Component {
           selectedCity={this.state.selectedCity}
         />
         {this.state.cityWeather.length > 0 &&
-          // <p>{this.state.cityWeather[0].date}</p>
-          <Row xs={1} md={2} lg={3}>
-            {weatherCards}
-          </Row>
+          <Row xs={1} md={2} lg={3} className="weatherRow">
+            <Weather 
+              cityData={this.state.cityData}
+              cityWeather={this.state.cityWeather}
+            />
+            </Row>
         }
         
         <Footer />
