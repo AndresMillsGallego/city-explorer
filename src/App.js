@@ -6,7 +6,6 @@ import Footer from './Footer';
 import CityForm from './CityForm'
 import Weather from './Weather'
 import Movies from './Movies'
-import Row from 'react-bootstrap/Row'
 
 class App extends React.Component {
   constructor(props) {
@@ -45,7 +44,7 @@ class App extends React.Component {
           selectedCity={this.state.selectedCity}
         />
         {this.state.cityWeather.length > 0 &&
-          <Row xs={1} md={2} lg={3} className="weatherRow">
+          <>
             <Weather
               cityData={this.state.cityData}
               cityWeather={this.state.cityWeather}
@@ -53,7 +52,7 @@ class App extends React.Component {
             <Movies 
               cityMovies={this.state.cityMovies}
             />
-          </Row>
+          </>
         }
         <Footer />
       </>

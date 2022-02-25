@@ -8,6 +8,8 @@
 
 ![Lab 09 Whiteboard](/Lab09WRRC.png)
 
+![Lab 10 Whiteboard](/Lab.jpg)
+
 **Author**: Andres Mills Gallego
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
@@ -45,6 +47,8 @@ Front end built with React, HTML and a bit of CSS.
 - Start time: 4:45pm
 - Finish time: 5:40pm
 - Actual time needed to Complete: approx. 1 hour 
+
+### Lab 10
 
 ## Credit and Collaborations
 
