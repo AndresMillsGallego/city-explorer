@@ -9,12 +9,13 @@ h2 {
   text-align: center;
   margin: auto;
   padding-bottom: 1rem;
-  border-bottom: 3px double blue;
+  border-bottom: 3px double crimson;
 }
 
 .card {
   padding: 1rem;
   text-align: center;
+
 }
 
 #cityCard {

@@ -38,7 +38,7 @@ class Main extends React.Component {
             <div id='zoomDiv'>
               <Button variant='outline-primary' onClick={this.zoomOut}>- Zoom Out -</Button> <Button variant='outline-danger' onClick={this.zoomIn}>+ Zoom In +</Button>
             </div>
-            <Card.Img src={cityMap} alt={cityName} title={cityName} className="h-50 w-50" />
+            <Card.Img src={cityMap} alt={cityName} title={cityName} className="h-75 w-75 mb-4" />
             <Card.Body>
               <ListGroup>
                 <ListGroup.Item>The location you have selected is <b id='name'>{cityName}</b></ListGroup.Item>
