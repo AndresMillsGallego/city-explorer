@@ -6,7 +6,6 @@ import Footer from './Footer';
 import CityForm from './CityForm'
 import Weather from './Weather'
 import Movies from './Movies'
-import Row from 'react-bootstrap/Row'
 
 class App extends React.Component {
   constructor(props) {
