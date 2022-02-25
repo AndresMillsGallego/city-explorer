@@ -5,6 +5,7 @@ import './App.css';
 import Footer from './Footer';
 import CityForm from './CityForm'
 import Weather from './Weather'
+import Movies from './Movies'
 import Row from 'react-bootstrap/Row'
 
 class App extends React.Component {
@@ -12,30 +13,32 @@ class App extends React.Component {
     super(props);
     this.state = {
       cityData: [],
-      cityWeather: []
+      cityWeather: [],
+      cityMovies: []
     }
   };
 
   getCityData = (cityData) => {
     this.setState({ cityData: cityData });
-    console.log(this.state.cityData[0])
   }
 
   getCityWeather = (cityWeather) => {
     this.setState({ cityWeather: cityWeather });
-    console.log(this.state.cityWeather)
+  }
+
+  getCityMovies = (cityMovies) => {
+    this.setState({ cityMovies: cityMovies.data });
   }
 
   render() {
-    console.log(this.state.cityWeather)
-    
+
     return (
       <>
-
         <Header />
         <CityForm
           getCityData={this.getCityData}
           getCityWeather={this.getCityWeather}
+          getCityMovies={this.getCityMovies}
         />
         <Main
           cityData={this.state.cityData}
@@ -43,15 +46,16 @@ class App extends React.Component {
         />
         {this.state.cityWeather.length > 0 &&
           <Row xs={1} md={2} lg={3} className="weatherRow">
-            <Weather 
+            <Weather
               cityData={this.state.cityData}
               cityWeather={this.state.cityWeather}
             />
-            </Row>
+            <Movies 
+              cityMovies={this.state.cityMovies}
+            />
+          </Row>
         }
-        
         <Footer />
-
       </>
     )
   }

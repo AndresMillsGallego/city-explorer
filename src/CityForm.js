@@ -37,28 +37,40 @@ class CityForm extends React.Component {
     } catch (error) {
       this.setState({
         error: true,
-        errorType: error.response.data.error,
+        errorType: 'We are having trouble getting the city data.',
         errorStatus: error.response.status
       })
     } this.getWeather();
+      this.getMovies();
   };
   
   getWeather = async () => {
     try {
-  
-      
       let weatherUrl = `http://localhost:3001/weather?lat=${this.state.cityData.lat}&lon=${this.state.cityData.lon}`
       let cityWeather = await axios.get(weatherUrl);
       this.props.getCityWeather(cityWeather.data);
     } catch (error) {
       this.setState({
         error: true,
-        errorType: error.response.data.error,
+        errorType: 'We are having trouble getting the weather data.',
         errorStatus: error.response.status
       })
     }
   }
 
+  getMovies = async () => {
+    try {
+      let movieUrl = `http://localhost:3001/movie?searchQuery=${this.state.selectedCity}`;
+      let cityMovies = await axios.get(movieUrl);
+      this.props.getCityMovies(cityMovies);
+    } catch (error) {
+      this.setState({
+        error: true,
+        errorType: 'We are having trouble getting the movie data.',
+        errorStatus: error.response.status
+      })
+    }
+  }
 
   closeAlert = () => this.setState({ error: false });
 

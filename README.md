@@ -6,6 +6,8 @@
 
 [Lab 08 Whiteboard Link](https://miro.com/app/live-embed/uXjVOK2U1ho=/?moveToViewport=-1676,-1807,3590,3669)
 
+![Lab 09 Whiteboard](/Lab09WRRC.png)
+
 **Author**: Andres Mills Gallego
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
@@ -33,8 +35,18 @@ Front end built with React, HTML and a bit of CSS.
 - Name of Feature: APIs
 - Estimate time to complete: I wish I knew lol
 - Start time: 3:30pm
-- Finish time:
-- Actual time needed to complete: 
+- Finish time: 11:00pm
+- Actual time needed to complete: I still did not finish the lab.  I ran into a bug with the linter which had me going down a rabbit hole chasing an imaginary rabbit! Good news is I fixed the problem
+
+### Lab 09
+
+- Name of Feature: Refactor
+- Estimate time to complete:  I am not sure since I need to finish lab 08 still
+- Start time: 1:30pm
+- Finish time: 
+- Actual time needed to Complete: 
 
 ## Credit and Collaborations
+
+Tanner Percival has worked at my table a lot and we help eachother out.  I value his experience and he is a great partner.  Ryan Galloway also really helped steer me in the right direction during lab 08 and it was he who alerted me to the false alarm from the linter bug.
 

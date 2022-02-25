@@ -6,7 +6,6 @@ import './Weather.css'
 
 class Weather extends React.Component {
   render() {
-    console.log(this.props.cityWeather)
     let weatherCards = this.props.cityWeather.map(day => (
       <Col key={day.date} className="mt-4 mb-4">
         <Card className="w-50 m-auto">
