@@ -50,6 +50,14 @@ Front end built with React, HTML and a bit of CSS.
 
 ### Lab 10
 
+- Name of Feature: Performance
+- Estimate time to complete:  I am hoping an hour or two
+- Start time: 3:30pm
+- Finish time: 5:40pm
+- Actual time needed to Complete: approx. approx. 2 hours
+
+I did run into an issue where when connecting to local server it had to be http and NOT https!
+
 ## Credit and Collaborations
 
 Tanner Percival has worked at my table a lot and we help eachother out.  I value his experience and he is a great partner.  Ryan Galloway also really helped steer me in the right direction during lab 08 and it was he who alerted me to the false alarm from the linter bug.

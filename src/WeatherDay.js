@@ -6,8 +6,8 @@ import './Weather.css'
 class WeatherDay extends React.Component {
   render() {
     let weatherCards = this.props.cityWeather.map(day => (
-      <Col key={day.date} className="mt-4 mb-4">
-        <Card className="w-50 m-auto">
+      <Col key={day.date} className="">
+        <Card className="w-75 m-auto mb-4">
           <Card.Text>{day.date}</Card.Text>
           <Card.Text>{day.description}</Card.Text>
         </Card>
@@ -17,9 +17,9 @@ class WeatherDay extends React.Component {
     return (
       <>
         {this.props.cityData.length > 0 &&
-          <Container >
-            <h2>Weather Forecast</h2>
-            <Row xs={1} sm={2} md={3} lg={4} className="m-auto w-100">
+          <Container id="weatherContainer" className="mt-5">
+            <h2 className="mb-4">Weather Forecast</h2>
+            <Row xs={1} sm={2} lg={3} className="m-auto">
               {weatherCards}
             </Row>
           </Container>

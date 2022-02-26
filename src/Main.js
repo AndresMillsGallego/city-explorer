@@ -33,7 +33,7 @@ class Main extends React.Component {
       <>
         {
           this.props.cityData.length > 0 &&
-          <Card id="cityCard" className='mb-4 w-50'>
+          <Card id="cityCard" className='w-75'>
             <Card.Header><b id='name'>{cityName}</b></Card.Header>
             <div id='zoomDiv'>
               <Button variant='outline-primary' onClick={this.zoomOut}>- Zoom Out -</Button> <Button variant='outline-danger' onClick={this.zoomIn}>+ Zoom In +</Button>

@@ -19,7 +19,7 @@ class Movie extends React.Component {
       {this.props.cityMovies.length > 0 &&
         <Container id="movieContainer" className="w-100">
           <h2>City Movies</h2>
-          <Row xs={1} sm={2} className="m-auto">
+          <Row xs={1} sm={2} className="m-auto w-100">
             {movieCards}
           </Row>
         </Container>
