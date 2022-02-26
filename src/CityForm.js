@@ -46,7 +46,7 @@ class CityForm extends React.Component {
   
   getWeather = async () => {
     try {
-      let weatherUrl = `http://localhost:3001/weather?lat=${this.state.cityData.lat}&lon=${this.state.cityData.lon}`
+      let weatherUrl = `https://city-explorer-206.herokuapp.com/weather?lat=${this.state.cityData.lat}&lon=${this.state.cityData.lon}`
       let cityWeather = await axios.get(weatherUrl);
       this.props.getCityWeather(cityWeather.data);
     } catch (error) {
